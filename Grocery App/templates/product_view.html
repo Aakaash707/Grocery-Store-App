@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <title>
+            Product Details
+        </title>
+        <style>
+            body{
+            font-size: 20px;
+            background-color: antiquewhite;
+            margin: 0;
+            }
+            td, th {
+                text-align: justify;
+                width:50%;
+            }
+
+            table, th, td{
+                border: 3px;
+                border-collapse: collapse;
+                border-style: outset;
+                border-color: #4E9CAF;
+            }
+
+            table{
+                table-layout: fixed;
+            }
+            
+            body,th,td{
+                font-size: 20px;
+            }
+
+            
+            .button {
+            display: block;
+            width: 155px;
+            height: 25px;
+            background: #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            line-height: 25px;
+            text-decoration:none;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            font-size: large;
+            align-items: end;
+            }
+
+            .button:hover {
+                background-color: #255c74;
+                color: white;
+            }
+
+            .center,li {
+            margin-left: auto;
+            margin-right: auto;
+            }
+
+            .topnav a {
+                float: right;
+                color: #f2f2f2;
+                text-align: right;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            .topnav a.active {
+                background-color: #255c74;
+                color: white;
+            }
+
+            .topnav {
+            align-items: center;
+            overflow: hidden;
+            background-image: linear-gradient(to right, #255c74 5%, #45adad);
+            color: #fff;
+            }
+        </style>
+
+    </head>
+
+    <div class = 'topnav' id = 'nav'> 
+        <span style="margin: 0 10px; line-height: 45px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ name }}'s Dashboard</span>
+        <a href="/">Logout</a>
+        <a href="/manager/summary">Summary</a> 
+    </div>
+
+    <body style="background-color:antiquewhite;">
+        <a href="/manager/category_back" class="button" style="float: right; margin-right: 20px; margin-top: 20px; line-height: 25px;">Back to Home</a>
+    
+        <h1 style="text-align: left; padding-left: 20px;">Product Details:</h1><br><br>
+        <table class="center" id="table">
+                <tr>
+                    <th>Product Name</th>
+                    <td>{{ prd.product_name }}</td>
+                </tr>
+                <tr>
+                    <th>Product Unit</th>
+                    <td>{{ prd.product_unit }}</td>
+                </tr>
+                <tr>
+                    <th>Product Price</th>
+                    <td>{{ prd.product_price }}</td>
+                </tr>
+                <tr>
+                    <th>Product Availability</th>
+                    <td>{{ prd.product_availability }}{{ prd.product_unit }}</td>
+                </tr>
+        </table>
+        <br>
+        <ul style="display: flex; list-style-type: none;">
+            <li><a href="/manager/{{ prd.product_category }}/{{ prd.product_name }}/edit" class="button" >Edit</a></li>
+            <li><a href="/manager/{{ prd.product_category }}/{{ prd.product_name }}/delete" class="button" >Delete</a></li>
+        </ul>
+        
+    </body>
+</html>

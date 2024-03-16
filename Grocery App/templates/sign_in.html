@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>
+        Login
+    </title>
+    <style>
+        body{
+            font-size: 20px;
+            background-color: antiquewhite;
+        }
+
+        .button {
+            display:block;
+            width: 255px;
+            height: 25px;
+            background:  #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            line-height: 0px;
+            text-decoration:none;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            font-size: large;
+            margin-left: 0px;
+            margin-right: auto;
+        }
+
+        .button:hover {
+            background-color: #255c74;
+            color: white;
+        }
+
+        .outline{
+            border: 3px grey solid;
+            border-radius: 3px;
+            border-width: 3px 3px 3px 3px; 
+            display: inline-block;
+            padding-left: 200px;
+            padding-right: 200px;
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        input{
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">ABC Groceries</h1>
+    <div style="padding-top: 60px; text-align: center;">
+        <div class="outline" style="background-color:aliceblue;">
+            <h2>{{ head }}</h2>
+            <form style="font-size: larger;" action="/sign_in/{{ ur }}" method="post">
+                Username <input type="text" name="iname" required><br><br>
+                Password <input type="password" name="ipass" style="margin-left: 5px;" required><br><br>
+                <input type="submit" value="sign-in" class="button" style="font-size: large;">
+            </form>
+            <p style="color: red; margin-left: -70px;">{{ warn }}</p>
+            {% if ur == 'user' %}
+            <p style="margin-left: -120px;">New login?<a href="/sign_up/{{ ur }}">&nbsp;&nbsp;sign_up&nbsp;&nbsp;</a></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

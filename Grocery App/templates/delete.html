@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <title>
+        Delete Section
+    </title>
+    <style>
+        body{
+            font-size: 20px;
+            background-color: antiquewhite;
+            margin: 0;
+        }
+
+        .button {
+            display:block;
+            width: 155px;
+            height: 25px;
+            background:  #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            line-height: 0px;
+            text-decoration:none;
+            transition-duration: 0.2s;
+            cursor: pointer;
+            font-size: large;
+            margin-left: 0px;
+            margin-right: auto;
+        }
+
+        .button:hover {
+            background-color: #255c74;
+            color: white;
+        }            
+        
+        .topnav a {
+            float: right;
+            color: #f2f2f2;
+            text-align: right;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #255c74;
+            color: white;
+        }
+
+        .topnav {
+        align-items: center;
+        overflow: hidden;
+        background-image: linear-gradient(to right, #255c74 5%, #45adad);
+        color: #fff;
+        }
+        .push{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+    
+        
+    </style>
+</head>
+
+<div class = 'topnav' id = 'nav'> 
+    <span style="margin: 0 10px; line-height: 45px;">&nbsp;&nbsp;&nbsp;&nbsp;{{ name }}'s Dashboard</span>
+    <a href="/">Logout</a>
+    <a href="/manager/summary">Summary</a> 
+</div>
+
+<body>
+    <a href="/manager/category_back" class="button" style="float: right; margin-right: 20px; margin-top: 20px; line-height: 25px;">Back to Home</a>
+    {% if cr %}
+        <h2 class="push">{{ prd }} - Product Deletion</h2>
+        <form action="/manager/{{ cat }}/{{ prd }}/delete" method="POST">
+    {% else %}
+        <h2 class="push">{{ cat }} - Category Deletion</h2>
+        <form action="/manager/{{ cat }}/delete" method="POST" enctype="multipart/form-data">
+    {% endif %}
+        <p>
+            <label for="prdname" class="push">{{ msg }}</label>    
+            <input type="checkbox" name="choice" class="push" value="1" required style="width: 20px; height: 20px; cursor: pointer;"><br><br>
+        </p>
+            <input type="submit" value="Confirm" class="button" style="font-size: large;">
+    </form>
+</body>
+</html>
